@@ -4,15 +4,35 @@ fetch("http://localhost:3000/films")
     .then(response => response.json())
     .then(data => {
         data.forEach(films => {
-            console.log (films)
+            console.log(films)
 
-            const moviesDetails = document.createElement('li')
-            moviesDetails.innerText = films.title
-            movies.appendChild(moviesDetails)
-            
-            }
-          ) 
-     })
+            const moviesHeading = document.createElement('p')
+            moviesHeading.innerText = films.title
+            movies.appendChild(moviesHeading)
+
+            const moviesImage = document.createElement('p')
+            moviesImage.innerHTML = `<img src = "${films.poster}" alt= "The Giant Gila Monster">`
+            movies.appendChild(moviesImage)
+
+            const moviesRuntime = document.createElement('p')
+            moviesRuntime.innerText = films.runtime
+            movies.appendChild(moviesRuntime)
+
+            const moviesShowtime = document.createElement('p')
+            moviesShowtime.innerText = films.showtime
+            movies.appendChild(moviesShowtime)
+
+            const availableTicketsButton = document.createElement('button')
+            availableTicketsButton.id = 'availableticketss'
+            availableTicketsButton.innerText = 'available tickets'
+            movies.appendChild(availableTicketsButton)
+            // availableTicketsButton.addEventListener('click', ()=>{
+                
+            // } )
+
+        }
+        )
+    })
 
 
 function displayFirstMovie() {
@@ -49,7 +69,7 @@ function displayFirstMovie() {
             firstMovieCont.appendChild(tickets)
 
             const ticketting = document.getElementById('availabletickets')
-            ticketting.addEventListener('click', availableTickets)
+            ticketting.addEventListener('click', availableTickets(ticketssold, theatrecapacity))
 
 
             // tickets.addEventListener('click', function availableTickets(ticketssold, theatrecapacity) {
@@ -66,12 +86,11 @@ function displayFirstMovie() {
 
             //tickets.innerText = availableTickets (ticketssold, theatrecapacity)
             //const availabletickets = availableTickets (ticketssold, theatrecapacity)
-            
-            
+
+
         })
 }
 displayFirstMovie()
-
 
 function availableTickets(ticketssold, theatrecapacity) {
     if (ticketssold <= theatrecapacity) {
@@ -84,6 +103,7 @@ function availableTickets(ticketssold, theatrecapacity) {
         }
     }
 }
+console.log(availableTickets(1, 3))
 
 
 
@@ -94,29 +114,29 @@ function availableTickets(ticketssold, theatrecapacity) {
 // })
 
 
- //     const firstMovie = document.createElement('div')
-    //     firstMovie.innerHTML = `
-    //     ${data.title}
-    //     <img src = "${data.poster}" alt= "The Giant Gila Monster">
-    //     ${data.runtime}
-    //     ${data.showtime}
-    //     available tickets
-    //     `
+//     const firstMovie = document.createElement('div')
+//     firstMovie.innerHTML = `
+//     ${data.title}
+//     <img src = "${data.poster}" alt= "The Giant Gila Monster">
+//     ${data.runtime}
+//     ${data.showtime}
+//     available tickets
+//     `
 
-    // firstMovieCont.appendChild (firstMovie)
+// firstMovieCont.appendChild (firstMovie)
 
-    //     console.log (firstMovieCont)
-    // })
+//     console.log (firstMovieCont)
+// })
+
+//
 
 //
 
-//
- 
-            
-                // moviesHead.addEventListener('click', () => {
-                //     displayMovieDetails(films)
-                // })
-                
+
+// moviesHead.addEventListener('click', () => {
+//     displayMovieDetails(films)
+// })
+
 // moviesHead.addEventListener('click', () => {
 //     displayMovieDetails(films)
 //      })
@@ -130,40 +150,40 @@ function availableTickets(ticketssold, theatrecapacity) {
 //         displayMovieDetails(films)
 //     })
 // }
-movieWhenClicked(moviesDetails, films)
-            displayMovieDetails(films)
- moviesDetails.addEventListener('click', ()=>{
-     displayMovieDetails(films)
- })
- function displayMovieDetails(films) {
-    movies.innerHTML = ''
+// movieWhenClicked(moviesDetails, films)
+// displayMovieDetails(films)
+// moviesDetails.addEventListener('click', () => {
+//     displayMovieDetails(films)
+// })
+// // function displayMovieDetails(films) {
+//     movies.innerHTML = ''
 
-    const moviesPoster = document.createElement('movieposter')
-    moviesPoster.src = films.poster
-    movies.appendChild(moviesPoster)
+//     const moviesPoster = document.createElement('movieposter')
+//     moviesPoster.src = films.poster
+//     movies.appendChild(moviesPoster)
 
-    const moviesHead = document.createElement('p')
-    moviesHead.innerText = films.title
-    movies.appendChild(moviesHead)
+//     const moviesHead = document.createElement('p')
+//     moviesHead.innerText = films.title
+//     movies.appendChild(moviesHead)
 
-    const moviesRuntime = document.createElement('p')
-    moviesRuntime.innerText = films.runtime
-    movies.appendChild(moviesRuntime)
+//     const moviesRuntime = document.createElement('p')
+//     moviesRuntime.innerText = films.runtime
+//     movies.appendChild(moviesRuntime)
 
-    const moviesShowtime = document.createDocumentFragment('p')
-    moviesShowtime.innerText = films.showtime
-    movies.appendChild(moviesShowtime)
+//     const moviesShowtime = document.createElement('p')
+//     moviesShowtime.innerText = films.showtime
+//     movies.appendChild(moviesShowtime)
 
-    const availableTicketsButton = document.createElement('button')
-    availableTicketsButton.id = 'availableticketss'
-    availableTicketsButton.innerText = 'availableetickets'
-    movies.appendChild(availableTicketsButton)
+//     const availableTicketsButton = document.createElement('button')
+//     availableTicketsButton.id = 'availableticketss'
+//     availableTicketsButton.innerText = 'availableetickets'
+//     movies.appendChild(availableTicketsButton)
 
-    moviesHead.addEventListener('click', () => {
-        displayMovieDetails(films)
-         })     
- }
-displayMovieDetails(films)
+//     moviesHead.addEventListener('click', () => {
+//         displayMovieDetails(films)
+//     })
+// }
+// displayMovieDetails(films)
 
 
 
