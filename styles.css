@@ -10,3 +10,12 @@ body p {
     font-size: 30px;
     font-weight: bolder;
 }
+.firstp {
+    width: 500px;
+    height: 500px;
+}
+
+#singlemovdiv movieitemposter {
+    width: 500px;
+    height: 500px
+}
