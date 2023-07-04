@@ -72,6 +72,7 @@ function displayMovieItemFun(dataitem) {
                 movieitemdetails.append(movieitemtitle)
 
                 const movieitemposter = document.createElement('img')
+                movieitemposter.id = 'movieitemallposter'
                 movieitemposter.src = dataitem.poster
                 movieitemdetails.append(movieitemposter)
 
